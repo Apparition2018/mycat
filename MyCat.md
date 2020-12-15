@@ -6,7 +6,7 @@
 1.[MyCat1.6权威指南](https://github.com/MyCATApache/Mycat-Server)
 ---
 ## MyCat 介绍
->## MyCat 作用
+>### MyCat 作用
 >1. 实现数据库的读写分离
 >2. 支持读负载均衡
 >3. 支持后端 MySQL 高可用
@@ -17,14 +17,14 @@
 >5. 数据库水平拆分（分库分表）
 >6. 数据库连接池
 >7. 支持通过 jdbc 连接多种数数据库
->## MyCat 应用场景
+>### MyCat 应用场景
 >1. 需要进行读写分离的场景
 >2. 需要进行分库分表的场景
 >3. 多租户场景
 >4. 数据统计系统
 >5. HBASE 的一种替代方案
 >6. 需要使用同样的方式查询多种数据库的场景
->## MyCat 优势
+>### MyCat 优势
 >1. 基于阿里的 Cobar 系统开发
 >2. 开发社区活跃
 >3. 完全开源可以自定义开发
@@ -66,4 +66,17 @@
 >       1. export JAVA_HOME=/usr/lib/jvm/jre-1.8.0-openjdk.x86_64
 >       2. export MYCAT_HOME=/usr/local/mycat
 >4. 启动 MyCat
+>   1. su mycat
+>   2. $MYCAT_HOME/bin/startup_nowrap.sh
+>### MyCat 配置文件
+>1. schema.xml: 配置逻辑库表及数据节点
+>   - &lt;schema&gt;&lt;table&gt;&lt;/table&gt;&lt;/schema&gt; 定义逻辑库表
+>   - &lt;dataNode&gt;&lt;/dataNode&gt; 定义数据节点
+>   - &lt;dataHost&gt;&lt;/dataHost&gt; 定义数据节点的物理数据源
+>2. rule.xml: 配置表的分片规则
+>   - &lt;tableRule name=""&gt;&lt;/tableRule&gt; 定义表使用的分片规则
+>   - &lt;function name=""&gt;&lt;/function&gt; 定义分片算法
+>3. server.xml: 配置服务器权限
+>   - &lt;system&gt;&lt;property name=""&gt;&lt;/property&gt;&lt;/system&gt; 定义系统配置
+>   - &lt;user&gt;&lt;/user&gt; 定义连接 MyCat 的用户
 ---
